@@ -74,7 +74,7 @@ final class ViewController: UIViewController {
         } else {
             player.actionAtItemEnd = .none
             playerObservingToken = NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: playerItem, queue: nil) { _ in
-                player.seek(to: kCMTimeZero, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
+                player.seek(to: CMTime.zero, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero)
             }
         }
 
@@ -98,7 +98,7 @@ final class ViewController: UIViewController {
         return .lightContent
     }
 
-    func togglePlaying() {
+    @objc func togglePlaying() {
         guard let player = player else {
             return
         }
